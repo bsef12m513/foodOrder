@@ -1,0 +1,27 @@
+﻿@*@{
+    ViewBag.Title = "orderList";
+}
+
+
+@using foodOrder.Models
+
+<h1 style="font-family:'Lucida Calligraphy'; font-size:30px; color:#336600; padding:10px;">Your Order List</h1>
+
+<hr />
+
+<table border="1" style=" border-width: 20px; font-family: 'Lucida Calligraphy'; border-color: black; color: #ffffff " >
+
+    @foreach (var i in ViewBag.orders)
+    {
+        <tr><td style="padding:17px">@i.order</td><td style="padding:17px; color:black">@i.price</td><td style="padding-left:30px">@i.price</td></tr>
+
+    }
+</table>
+
+<hr />
+<p style=" color:white; margin-left:35px">Total Ammount  <font color="black">--------------------------------</font>  @ViewBag.payment</p>
+
+<hr />
+<center><a href="/Home/showOrder"><input type="submit" style="background-color:#336600;  padding:18px; color:white" value="Conform Order!" /></a></center>
+<br /><br />*@
+

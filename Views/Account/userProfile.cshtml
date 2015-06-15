@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "userProfile";
+}
+@model foodOrder.Models.sign
+@using foodOrder.Models
+
+<body style='background-color:#4b4545; background-attachment:fixed ; margin-left: 8em; margin-right: 8em; margin-top: 4em; margin-bottom: 4em;'>
+
+
+    <a href="/Account/Logout" style=" margin-right:20px  ; color:#ffffff; font-size:15px ">Log Out</a>
+    <a href="/Account/userProfile" style=" color:#ffffff; font-size:15px ">@ViewBag.Name.name</a>
+    <center><img src="/Files/@ViewBag.Name.image" class="img-circle" width="150" height="150" style="" />   </center>
+
+    <h1 style="margin: 40px; color: #ffffff; font-family: 'Lucida Calligraphy'; font-size: 50px; font: bold">Profile</h1>
+    
+    
+    <hr />
+    <br />
+    <div style="background-color:black">
+        <form style=" margin-left:400px; font-size:20px">
+        @using (Html.BeginForm("updateProfile", "Account", FormMethod.Post))
+        {
+
+            <p style=" font-family:'Lucida Calligraphy' ; color:white">
+                @Html.HiddenFor(m => m.Id)
+                <br /><br />
+                <a href="/Account/choose" style="color:#336600"> Choose Your Profile Image!</a>
+                <br />
+                <br />
+
+                @Html.LabelFor(m => m.name)
+                <br /><font color=#000000>
+                @Html.EditorFor(m => m.name)
+                </font>
+                <br />
+
+                @Html.LabelFor(m => m.email)
+                <br /><font color=black>
+                @Html.EditorFor(m => m.email)
+                </font>
+                <br />
+
+                @Html.LabelFor(m => m.password)
+                <br /><font color=black>
+                @Html.EditorFor(m => m.password)
+                </font>
+                <br />
+
+                @Html.LabelFor(m => m.address)
+                <br /><font color=black>
+                @Html.EditorFor(m => m.address)
+                </font>
+                <br />
+
+                @Html.LabelFor(m => m.city)
+                <br /><font color=black>
+                @Html.EditorFor(m => m.city)
+                </font>
+                <br /><br /><br />
+
+
+    <input type="submit" name="thankyou" style="background-color:#336600; padding:10px; color:black ;  font:bold" value=" Updated Profile" />
+                <br /><br />
+                <a href="/Home/Products"> <input type="button" style="background-color:#336600; padding:10px; color:black ;  font:bold"  value="Go To Order" /> </a>
+                <br /><br /><br />
+</p>
+        }
+</form>
+
+    </div>
+
+    </body>

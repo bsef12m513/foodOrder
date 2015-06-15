@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div class="row">
+    <div class="col-md-6" style="background-color: black; width: 500px ;margin-top:35px;margin-left:60px; border-radius: 20px; padding: 35px; border-color: #336600; border-style:ridge; border-width: 5px; box-shadow: 10px 10px 5px #888888; ">
+        <h1 style="font-family: 'Lucida Calligraphy'; font-style: oblique; font-size: 40px; font: bold; text-shadow: 5px 5px 3px #336600; padding-left: 50px"><font color="#ffffff">Head Office!</font></h1>
+        <font color="#c8c8c8">
+            <br /><br /><br />
+            Foodconsults (Pvt.) Ltd.
+           1-Q, Gulberg II,
+            LAHORE,
+            PAKISTAN.
+            <br /><br />
+            Postal Code: 54600
+            <br />Contact No(s). +92 42 35753603-4
+            <br />Fax No. +92 42 35751954
+            <br />E-Mail. snpfood@brain.net.pk
+            <br /><br /><br />
+        </font>
+    </div>
+        <div class="col-md-6">
+            <img src="~/files/head.jpg" width="380" height="380" alt="" style="margin-top: 30px;margin-left:25px ;border: solid #336600; border-radius: 20px; box-shadow: 10px 10px 5px #888888">
+        </div>
+        </div>
+
+
+
+                <div style="background-color: black;margin-top:35px; border-top-left-radius: 200px; border-bottom-right-radius: 200px; padding: 35px; border-color: #336600; border-style:ridge; border-width: 5px; box-shadow: 10px 10px 5px #888888; ">
+                    <h1 style="font-family: 'Lucida Calligraphy'; font-style: oblique; font-size: 40px; font: bold; text-shadow: 5px 5px 3px #336600; padding-left: 300px"><font color="#ffffff">Send A Message!</font></h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-1">
+                        <img src="~/image/4.jpg" width="150" height="150" alt="" style="margin-top: 50px; border: solid #336600; border-radius: 20px; box-shadow: 10px 10px 5px #336600">
+                        <img src="~/image/i.jpg" width="150" height="150" alt="" style="margin-top: 30px; border: solid #336600;  border-radius: 20px; box-shadow: 10px 10px 5px #336600">
+                        <img src="~/image/t.jpg" width="150" height="150" alt="" style="margin-top: 30px; border: solid #336600; border-radius: 20px; box-shadow: 10px 10px 5px #336600">
+                        <img src="~/image/z.jpg" width="150" height="150" alt="" style="margin-top: 30px; border: solid #336600; border-radius: 20px; box-shadow: 10px 10px 5px #336600">
+                        <img src="~/image/5.jpg" width="150" height="150" alt="" style="margin-top: 30px; border: solid #336600; border-radius: 20px; box-shadow: 10px 10px 5px #336600">
+
+                    </div>
+                    <div class="col-md-7" style="background-color: black; margin-top: 30px; margin-left:140px ;margin-right:40px ; border-radius: 20px; box-shadow: 10px 10px 5px #888888">
+
+                        <br /><h1 style=" padding:50px ;font-family:'Lucida Calligraphy'"><font color="#336600">Please Fill In All The Given Spaces!</font></h1>
+
+                        <form style="padding-left: 200px; margin-left: 30px; margin-top: 0em; font-family: 'Lucida Calligraphy'" action="/Home/message" method="post" name="form ">
+
+                            <h4>
+                                <font color="#c8c8c8"> Full Name</font>
+                                <br /><input type="text" placeholder="Full Name" name="name" required /><br /><br />
+                                <font color="#c8c8c8"> Email</font>
+                                <br /><input type="email" placeholder="Email" name="email" required /><br /><br />
+                                <font color="#c8c8c8"> Address</font>
+                                <br /><input type="text" placeholder="Address" name="address" required /><br /><br />
+                                <font color="#c8c8c8"> City</font>
+                                <br /><input type="text" placeholder="City" name="city" required /><br /><br />
+                                <font color="#c8c8c8"> Message</font><br />
+                                <textarea placeholder="Write Your Message Here!" style="width:250px ; height:80px" name="message" required></textarea>  <br /><br /><br />
+                                <input type="checkbox" /> <font color="#c8c8c8">Remember me </font>  <br /><br /><br />
+                                <font color="#c8c8c8"><input type="Submit" align:right; name="messagebtn" class="btn pull-center" style="background-color: #336600; font-size: 20px; padding: 20px" value="SEND MESSAGE " /></font>
+                                <br /><br /><br /><br /><br />
+                            </h4>
+                        </form>
+                    </div>
+                    <div class="col-md-1">
+                        <img src="~/image/z.jpg" width="150" height="150" alt="" style="margin-top: 50px; border: solid #336600; border-radius: 20px; box-shadow: 10px 10px 5px #336600">
+                        <img src="~/image/5.jpg" width="150" height="150" alt="" style="margin-top: 30px; border: solid #336600; border-radius: 20px; box-shadow: 10px 10px 5px #336600">
+                        <img src="~/image/6.jpg" width="150" height="150" alt="" style="margin-top: 30px; border: solid #336600; border-radius: 20px; box-shadow: 10px 10px 5px #336600">
+                        <img src="~/image/3.jpg" width="150" height="150" alt="" style="margin-top: 30px; border: solid #336600; border-radius: 20px; box-shadow: 10px 10px 5px #336600">
+                        <img src="~/image/2.jpg" width="150" height="150" alt="" style="margin-top: 30px; border: solid #336600; border-radius: 20px; box-shadow: 10px 10px 5px #336600">
+
+                    </div>
+                </div>
+                <br /><br /><br />
+
+</body>

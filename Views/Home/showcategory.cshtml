@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "showcategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using foodOrder.Models
+
+<head>
+
+
+    <title>Bootstrap Case</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    
+    <h1 style="font-family:'Lucida Calligraphy'; font-size:60px; font:bold ; color:#ffffff; padding:40px; margin-left:400px ; margin-bottom:30px"></h1>
+
+    <div class="row">
+
+        <div class="col-md-6" style="background-color:black; color:#c8c8c8 ;margin-left:100px ;border-radius:20px; box-shadow:10px 10px 5px #888888; ">
+            <h1 style="font-family:'Lucida Calligraphy'; font-size:30px; color:#336600; padding:10px;">ITEMS</h1>
+
+            <table border="1" style=" border-width: 20px; border-color: black; color: #ffffff; font-family: 'Lucida Calligraphy'">
+
+                @foreach (Menu i in Model)
+                {
+                    <tr><td style="padding:10px">@i.item</td><td style="padding:10px">@i.price</td></tr>
+
+                }
+            </table>
+            <br /><br /><br />
+
+        </div>
+    </div>
+
+
+</body>

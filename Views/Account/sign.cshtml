@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "sign";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script>
+
+
+        function checkemail() {
+            var x = document.getElementById("email").value;
+            var filter = /^([a-zA-Z0-9_\.\-])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            if (!filter.test(x)) {
+                alert('Please provide a valid email address');
+
+                return false;
+            }
+        }
+             
+        
+
+    </script>
+
+</head>
+<body style='background-color:#4b4545; background-attachment:fixed ; margin-left: 8em; margin-right: 8em; margin-top: 4em; margin-bottom: 4em;'>
+
+    <h1 style=" font-family: 'Lucida Calligraphy'; font-size: 50px; color: #ffffff; margin-left: 350px"> Accounts Panel</h1>
+    <div style="background-color: black;  margin-top: 30px; margin-left:80px ;margin-right:80px ; border-radius: 20px; box-shadow: 10px 10px 5px #888888">
+        
+        <div class="row">
+            <form style="padding-left: 40px; margin-left: 10px; margin-top: 0em; font-family: 'Lucida Calligraphy';" action="/Account/validuser" method="post" name="form ">
+
+
+                <div class="col-md-3" style="padding:10px">
+                    <h4>
+                        <font color="#c8c8c8"> Email</font>
+                        <br /><input type="email" placeholder="Email" name="email" required /><br /><br />
+                    </h4>
+                </div>
+                <div class="col-md-3" style="padding: 10px; margin-left: 60px">
+                    <h4>
+                        <font color="#c8c8c8"> Passward</font>
+                        <br /><input type="password" placeholder="Passward" name="passward" required /><br /><br />
+                    </h4>
+                </div>
+                <div class="col-md-3" style="padding:10px">
+                    <h4><font color="#c8c8c8"><input type="Submit" align:right; name="signin" class="btn pull-right" style="background-color: #336600; font-size: 20px; padding: 14px" value="Sign In " /></font></h4>
+
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+    <div style="background-color: black; margin-top: 30px; margin-left: 80px; margin-right: 40px; border-radius: 20px; box-shadow: 10px 10px 5px #888888">
+
+        <br /><h1 style=" padding-left:150px;padding:50px ;font-family:'Lucida Calligraphy'"><font color="#336600">Sign UP!</font></h1>
+        
+        
+        <form  style="padding-left: 360px; margin-left: 30px; margin-top: 0em; font-family: 'Lucida Calligraphy';" onsubmit='return checkemail()' action="/Account/FuncSignUp" method="post" name="Myform ">
+
+            <h4>
+                <font color="#c8c8c8"> Full Name</font>
+                <br /><input type="text" placeholder="Full Name" name="name" required /><br /><br />
+                <font color="#c8c8c8"> Email</font>
+                <br /><input type="text" placeholder="Email" id="email" name="email" required/> <input type="button" id="b1" value="Check" /><div id="checking" style="color:#98cb1a; margin-left:4px; font-size:20px">Checking...</div>
+                <div id="result" style="color: #98cb1a; font-size: 20px"></div>
+                <br /><br />
+
+                <font color="#c8c8c8"> Password</font>
+                <br /><input type="password" placeholder="Password" name="password" required/><br /><br />
+                <font color="#c8c8c8"> Conform Password</font>
+                <br /><input type="text" placeholder="Re-Enter Password" name="password1" required/><br /><br />
+                <font color="#c8c8c8"> Address</font>
+                <br /><input type="text" placeholder="Address" name="address" required/><br /><br />
+                <font color="#c8c8c8"> City</font>
+                <br /><input type="text" placeholder="City" name="city" required/><br /><br />
+                <font color="#c8c8c8"> Gender</font><br />
+                <input type="radio" name="gender" /><font color="#c8c8c8"> Male</font> <br />
+                <input type="radio" name="gender" /><font color="#c8c8c8"> Female</font> <br /><br /><br />
+
+
+                <font color="#c8c8c8"><input type="submit" align:right; name="signupbtn" class="btn pull-center" style="background-color: #336600; font-size: 20px; padding: 20px" value="Sign UP " /></font>
+
+                <br /><br /><br /><br /><br />
+            </h4>
+        </form>
+
+        
+        @Scripts.Render("~/bundles/jquery")
+        <script>
+
+            $(document).ready(function () {
+
+                $('#checking').hide();
+
+                $('#b1').click(function () {
+
+                    var email = $('#email').val();
+
+                    //alert('User Name ='+ userName);
+                    $('#checking').show();
+                    $.getJSON("/Account/CheckUserName?email=" + email, function (data) {
+                        $('#checking').hide();
+                        if (data) {
+                            $('#result').text("Email Already exists in database");
+
+                        }
+                        else {
+                            $('#result').text("Available");
+                        }
+                    });
+
+                });
+
+            });
+        </script>
+
+    </div>
+
+
+</body>
+</html>

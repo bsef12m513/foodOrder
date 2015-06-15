@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "showOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using foodOrder.Models
+<body>
+
+    <div  style="  margin:70px; background-color:black; color:#c8c8c8;border-radius:20px; box-shadow:10px 10px 5px #888888; ">
+
+        <center><h1 style="font-family:'Lucida Calligraphy'; font-size:30px; color:#336600; padding:10px;">Your Order List</h1></center>
+
+        <hr />
+
+       <center> <table border="1" style="  ;border-width: 20px; border-color: black; color: #ffffff; font-family: 'Lucida Calligraphy'">
+
+            @foreach (var i in ViewBag.orders)
+            {
+                <tr><td style="padding:17px">@i.order</td><td style="padding:17px; color:black">@i.price</td><td style="padding-left:30px">@i.price</td></tr>
+
+            }
+        </table>
+        </center>
+        <hr />
+        <center><p style=" color:white; margin-left:23px">Total Ammount  <font color="black">----------------------------------------------------------------------</font>  @ViewBag.payment</p></center>
+
+        <hr />
+        <center>
+            <a href="/Home/conform"><input type="submit" style="background-color:#336600; padding:10px;color:white" value="Conform Order!" /></a><br /><br />
+            <a href="/Home/cencel"><input type="submit" style="background-color:#336600; padding:10px ; color:white" value="Cencel Order!" /></a><br /><br />
+        </center>
+               <br /><br />
+    </div>
+
+
+
+</body>

@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "FuncSignUp";
+}
+
+@model Int32
+
+<body style='background-color:#4b4545; background-attachment:fixed ; margin-left: 8em; margin-right: 8em; margin-top: 4em; margin-bottom: 4em;'>
+
+@if(Model==2)
+{
+<h1 style="color:#ffffff; margin:150px ">You are signed up successfully.</h1>
+    <a href="/Home/Index" ><input type="submit" name="thankyou" style="background-color:#000000; padding:30px; margin-left:200px; font-size:30px; font:bold" value=" Thank you" /></a>
+}
+ 
+@if (Model == 1)
+{
+     <div>
+        <script>alert('Email Already Exists!');</script>
+        <script>window.location='/Account/sign'</script>
+    </div>
+}
+
+@if (Model==3)
+{
+     <div>
+        <script>alert('Please Fill in All the Spaces!');</script>
+        <script>window.location='/Account/sign'</script>
+    </div>
+    
+}
+
+    @if (Model == 4)
+    {
+        <div>
+            <script>alert('Password MissMatch!');</script>
+            <script>window.location = '/Account/sign'</script>
+        </div>
+
+    }
+
+   
+
+   
+ </body>

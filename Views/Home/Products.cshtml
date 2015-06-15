@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using foodOrder.Models
+<head>
+
+
+    <title>Bootstrap Case</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+    @section logout{
+       
+    <a href="/Account/Logout" style=" margin:20px  ; color:#ffffff; font-size:20px ">Log Out</a>
+    <a href="/Account/userProfile" style=" margin:20px ; color:#ffffff; font-size:20px ">@ViewBag.Name.name</a>
+        <center><img src="/Files/@ViewBag.Name.image" class="img-circle" width="150" height="150" style=""   />   </center>
+    <h1 style="font-family:'Lucida Calligraphy'; font-size:60px; font:bold ; color:#ffffff; padding:40px; margin-left:150px ; margin-bottom:30px"> ADD INTO YOUR CART</h1>
+        }
+    <div class="row">
+
+      
+        <div class="col-md-6" style="background-color:black; color:#c8c8c8 ;margin-left:50px ;border-radius:20px; box-shadow:10px 10px 5px #888888; ">
+            <h1 style="font-family:'Lucida Calligraphy'; font-size:30px; color:#336600; padding:10px;">MENU</h1>
+
+            <table border="1" style=" border-width: 20px; border-color: black; color: #ffffff; font-family: 'Lucida Calligraphy'">
+                @foreach (Menu i in Model)
+                {
+                    <tr><td style="padding:10px">@i.item</td><td style="padding:10px">@i.catagory</td><td style="padding:10px">@i.price</td><td style="padding-left:30px">@*@Html.ActionLink("Add","orderList", new { id = i.Id })*@<div id="now" class="nowClass" ><a href="#">Add</a><input style=" margin-left:3px ; width:0px" value="@i.Id" id="MenuId" class="Menuclass"  /></div></td></tr>
+                    
+                }
+            </table>
+            <br /><br /><br />
+
+        </div>
+           
+        <div class="col-md-4" id="showoo" style=" float:right ;  margin:70px; background-color:black; color:#c8c8c8;border-radius:20px; box-shadow:10px 10px 5px #888888; ">
+
+            <h1 style="font-family:'Lucida Calligraphy'; font-size:30px; color:#336600; padding:10px;">Your Order List</h1>
+
+            <hr /><br /><br /><br /><hr />
+            <p style=" color:white; margin-left:35px">Total Ammount  <font color="black">--------------------------------</font>  @ViewBag.payment</p>
+
+            <hr />
+            <center><a href="/Home/showOrder"><input type="submit" style="background-color:#336600;  padding:18px; color:white" value="Conform Order!" /></a></center>
+            <br /><br />
+
+        </div>
+        </div>
+
+
+    <script>
+
+    $('document').ready(function () {
+
+        $('.Menuclass').hide();
+        $('.nowClass').click(function () {
+
+            var value = $(this).find('input').val();
+            $.post("/Home/orderList", { id: value }, function (data) {
+
+                $('#showoo').empty().append(data);
+
+            });
+
+        });
+    });
+
+    </script>
+
+
+    @*<script>
+
+        $('document').ready(function () {
+                
+                $('.Menuclass').hide();
+                $('.nowClass').click(function () {
+
+                    //var value = $('.Menuclass').val();
+                    var value = $(this).find('input').val();
+                    $('#showoo').load('/home/orderList?id=' + value);
+
+                
+            });
+        });
+
+    </script>*@
+
+
+
+</body>

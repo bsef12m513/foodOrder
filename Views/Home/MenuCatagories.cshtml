@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "MenuCatagories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using foodOrder.Models
+
+<head>
+     
+
+    <title>Bootstrap Case</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+ 
+
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <link href="~/Content/source/jquery.fancybox.css" rel="stylesheet" />
+    <link href="~/Content/source/helpers/jquery.fancybox-thumbs.css" rel="stylesheet" />
+    <link href="~/Content/source/helpers/jquery.fancybox-buttons.css" rel="stylesheet" />
+    <script src="~/Content/source/jquery.fancybox.js"></script>
+    <script src="~/Content/source/jquery.fancybox.pack.js"></script>
+    <script src="~/Content/source/helpers/jquery.fancybox-thumbs.js"></script>
+    <script src="~/Content/source/helpers/jquery.fancybox-media.js"></script>
+    
+
+ 
+    
+
+    
+
+            </head>
+            <body>
+
+                <h1 style="font-family:'Lucida Calligraphy'; font-size:60px; font:bold ; color:#ffffff; padding:40px; margin-left:400px ; margin-bottom:30px"> Catagories</h1>
+
+                <div class="pull-right" style="padding:20px">
+                    <form action="/Home/Search" method="post">
+                        <input type="text" name="search" style="height:35px ; width:200px" placeholder="Search" />
+                        <input type="Submit" align:right; name="Search" style="background-color: #808080; color:black"   class="btn pull-right" value="Search" />
+
+                    </form>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-9" style="background-color:black; color:#c8c8c8 ;margin-left:100px ;border-radius:20px; box-shadow:10px 10px 5px #888888; ">
+                        <h1 style="font-family:'Lucida Calligraphy'; font-size:30px; color:#336600; padding:10px;">MENU</h1>
+
+                        <table border="1" style=" border-width: 4px; border-color: black; color: #ffffff; font-family: 'Lucida Calligraphy' ">
+
+                             @foreach (Catagoury i in Model)
+                {
+                   <tr><td style="font-size:40px">@Html.ActionLink(i.name, "showcategory", new { id = i.Id})</td><td style=" margin-left:250px ; padding:30px"><center><a href="/Files/@i.image" class="fancybox"><img src="/Files/@i.image" class="img-square" width="220" height="150" style="" /></a></center></td></tr>
+
+                }
+                        </table>
+                        <br /><br /><br />
+
+                    </div>
+                </div>
+
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+
+                        $('.fancybox').fancybox();
+                    });
+                </script>
+
+
+</body>
