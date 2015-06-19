@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Allorders";
+    ViewBag.Title = "Allcomplaints";
 }
 
 
@@ -40,21 +40,21 @@
 
 
 
-    <h1 style="font-family:'Lucida Calligraphy'; font-size:60px; font:bold ; color:#ffffff; padding:40px; margin-left:460px"> Orders</h1>
+    <h1 style="font-family:'Lucida Calligraphy'; font-size:60px; font:bold ; color:#ffffff; padding:40px; margin-left:400px"> Complaints</h1>
 
     <div class="row">
 
-        <div class="col-md-6" style="background-color: black; color: #c8c8c8; margin-left: 300px; border-radius: 20px; box-shadow: 10px 10px 5px #888888; margin-bottom: 20px;">
+        <div class="col-md-6" style="background-color: black; color: #c8c8c8; margin-left:300px; border-radius: 20px; box-shadow: 10px 10px 5px #888888; margin-bottom: 20px;">
 
             <h1 style="font-family:'Lucida Calligraphy'; font-size:30px; color:#336600; padding:10px;">Orders</h1>
-            
+
             <br /><br />
 
-            <p style="font-family:'Lucida Calligraphy'; font-size:30px; color:#336600; padding:10px;">Email<font color="black">---------------</font>Orders<font color="black">------------</font>Pay</p>
+            <p style="font-family:'Lucida Calligraphy'; font-size:20px; color:#336600; padding:10px;">Name<font color="black">----------</font>Complaints</p>
             <table border="1" style="border-width: 20px;padding:10px; border-color: #336600; color: #ffffff; font-family: 'Lucida Calligraphy'">
-                @foreach (Order i in Model)
+                @foreach (Complaint i in Model)
                 {
-                    <tr><td style="padding:10px">@i.email</td><td style="padding:10px">@i.order1</td><td style="padding:10px">@i.price</td></tr>
+                    <tr><td style="padding:20px">@i.name</td><td style="padding:10px">@i.complaint1</td></tr>
                 }
             </table>
 
